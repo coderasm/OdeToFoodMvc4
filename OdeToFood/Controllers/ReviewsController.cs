@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MvcContacts.Models;
+using OdeToFood.Models;
 
 namespace OdeToFood.Controllers
 {

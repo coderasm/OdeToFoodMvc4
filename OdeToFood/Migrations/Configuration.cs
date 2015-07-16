@@ -1,12 +1,14 @@
 using System.Collections.Generic;
+using WebMatrix.WebData;
 
 namespace OdeToFood.Migrations
 {
-    using MvcContacts.Models;
+    using OdeToFood.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Web.Security;
 
     internal sealed class Configuration : DbMigrationsConfiguration<OdeToFoodDB>
     {
@@ -42,6 +44,29 @@ namespace OdeToFood.Migrations
                     Country = "USA"
                 });
 
+            }
+
+            SeedMembership();
+        }
+
+        private void SeedMembership()
+        {
+            Statics.Database.Initialize();
+
+            var roles = (SimpleRoleProvider) Roles.Provider;
+            var membership = (SimpleMembershipProvider) Membership.Provider;
+
+            if (!roles.RoleExists("Admin"))
+            {
+                roles.CreateRole("Admin");
+            }
+            if (membership.GetUser("pkrueger", false) == null)
+            {
+                membership.CreateUserAndAccount("pkrueger", "whatnow");
+            }
+            if (!roles.GetRolesForUser("pkrueger").Contains("Admin"))
+            {
+                roles.AddUsersToRoles(new []{"pkrueger"}, new []{"admin"});
             }
         }
     }

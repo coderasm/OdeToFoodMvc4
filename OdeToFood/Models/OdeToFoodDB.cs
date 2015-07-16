@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Data.Entity;
+using OdeToFood.Models;
 
-namespace MvcContacts.Models
+namespace OdeToFood.Models
 {
     public class OdeToFoodDB : DbContext
     {
@@ -9,6 +10,8 @@ namespace MvcContacts.Models
         {
             
         }
+
+        public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<RestaurantReview> Reviews { get; set; }
     }

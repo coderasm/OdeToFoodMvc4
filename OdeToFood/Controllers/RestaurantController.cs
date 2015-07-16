@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MvcContacts.Models;
+using OdeToFood.Models;
 
 namespace OdeToFood.Controllers
 {
@@ -24,7 +24,7 @@ namespace OdeToFood.Controllers
 
         //
         // GET: /Restaurant/Create
-
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             return View();
@@ -35,6 +35,7 @@ namespace OdeToFood.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Create([Bind(Include = "Id,Name,City,Country")] Restaurant restaurant)
         {
             if (ModelState.IsValid)

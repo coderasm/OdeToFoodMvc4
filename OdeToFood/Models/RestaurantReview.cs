@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MvcContacts.Models
+namespace OdeToFood.Models
 {
     public class RestaurantReview : IValidatableObject
     {

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model AboutModel
+
+@{
     ViewBag.Title = "About";
 }
 
@@ -9,16 +11,11 @@
 
 <article>
     <p>
-        Use this area to provide additional information.
+        @Model.Name
     </p>
 
     <p>
-        Use this area to provide additional information.
-    </p>
-
-    <p>
-        Use this area to provide additional information.
-    </p>
+        @Model.Location
 </article>
 
 <aside>

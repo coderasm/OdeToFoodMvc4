@@ -1,4 +1,4 @@
-﻿namespace MvcContacts.Models
+﻿namespace OdeToFood.Models
 {
     public class RestaurantListViewModel
     {

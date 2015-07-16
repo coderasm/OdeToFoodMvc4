@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MvcContacts.Models
+namespace OdeToFood.Models
 {
     public class Restaurant
     {
